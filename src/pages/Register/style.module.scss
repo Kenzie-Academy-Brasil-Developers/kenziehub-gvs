@@ -1,0 +1,32 @@
+.divContent {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+}
+
+.headerRegister {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.link {
+    background-color: var(--grey3);
+    color: var(--grey0);
+    padding: 0px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    height: 40.11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.link:hover {
+    background-color: var(--grey2);
+}
