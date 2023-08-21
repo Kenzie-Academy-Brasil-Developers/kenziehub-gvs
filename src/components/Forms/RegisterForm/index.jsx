@@ -3,40 +3,24 @@ import { Input } from "../Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerFormSchema } from "./registerFormSchema.js";
 import { InputPass } from "../InputPass";
-import { api } from "../../../services/api";
-import { toast } from "react-toastify";
 import { Select } from "../Select";
 import { useState } from "react";
 import style from "./style.module.scss";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../../providers/userContext";
 export function RegisterForm() {
+  const {userRegister} = useContext(UserContext)
   const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm({ 
     resolver: zodResolver(registerFormSchema),
   });
-  const navigate = useNavigate();
-  async function userRegister(formData) {
-    try {
-      setLoading(true);
-      await api.post("/users", formData);
-      toast.success("Conta cadastrada com sucesso");
-      navigate("/");
-    } catch (error) {
-      toast.error("Ops, algo deu errado!");
-      if (error.response?.data === "Email already exists") {
-        toast.error("Ops, algo deu errado!");
-      }
-    } finally {
-      setLoading(false);
-    }
-  }
+  
   function submit(formData) {
-    userRegister(formData);
-    console.log(formData);
+    userRegister(formData, setLoading);
   }
   return (
     <form className={style.form} onSubmit={handleSubmit(submit)}>

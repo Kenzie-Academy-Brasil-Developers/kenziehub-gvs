@@ -1,7 +1,9 @@
 import logo from "../../assets/logo.svg";
-import { Link } from "react-router-dom";
 import style from "./style.module.scss";
-export function Dashboard({ user, userLogout }) {
+import { useContext } from "react";
+import { UserContext } from "../../providers/userContext";
+export function Dashboard() {
+  const {user, userLogout} = useContext(UserContext)
   return (
     <main>
       <header className={style.header}>

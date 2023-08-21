@@ -13,3 +13,4 @@ export function Input({ error, label, type, register, disabled }) {
     </div>
   );
 }
+ 
