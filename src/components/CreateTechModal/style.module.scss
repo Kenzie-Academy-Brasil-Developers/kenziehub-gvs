@@ -1,0 +1,52 @@
+.dialog{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        max-height: 75vh;
+        width: 100vw;
+}
+.modal{
+    
+    border-radius: 4px;
+    min-width: clamp(30vw, 25vw, 50vw);
+    display: flex;
+    flex-direction: column;
+    background-color: #212529;
+    
+
+
+    
+}
+.headerModal{
+    border-radius: 4px 4px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #343B41;
+    padding: 12px 20px;
+
+
+    & > button{
+        color: #868E96;
+        font-size: 16px;
+        font-weight: 600;
+
+    }
+    & > button:hover{
+        color: white;
+    }
+}
+.mainModal{
+    padding: 20px 22px 32px 22px;
+
+}

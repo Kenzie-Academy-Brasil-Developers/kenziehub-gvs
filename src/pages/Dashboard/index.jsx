@@ -2,8 +2,12 @@ import logo from "../../assets/logo.svg";
 import style from "./style.module.scss";
 import { useContext } from "react";
 import { UserContext } from "../../providers/userContext";
+import { TechContext } from "../../providers/techContext";
+import { TechList } from "../../components/TechList";
+import { EditTechModal } from "../../components/EditTechModal";
 export function Dashboard() {
   const {user, userLogout} = useContext(UserContext)
+  const {visibleEdit, edited} = useContext(TechContext)
   return (
     <main>
       <header className={style.header}>
@@ -22,10 +26,7 @@ export function Dashboard() {
           </div>
         </div>
         <div className={style.mainContent}>
-          <h2>Que pena! Estamos em desenvolvimento.</h2>
-          <p>
-            Nossa aplicação está em desenvolvimento, em breve teremos novidades
-          </p>
+          <TechList/>
         </div>
       </main>
     </main>

@@ -9,4 +9,13 @@
         outline: 0;
 
     }
+    input:hover{
+        border: 1px solid white;
+    }
+    .erro{
+        color: var(--color-primary);
+        margin-top: 6px;
+        font-size: 10px;
+
+    }
 }

@@ -20,26 +20,22 @@ export function UserProvider({ children }) {
       async function getUser(){
         try {
           setLoading(true)
-          const { data } = await api.get(`/users/${userId}`, {
+          const { data } = await api.get("/profile", {
             headers:{
               Authorization : `Bearer ${token}`
             }
           });
           setUser(data)
           navigate(pathname)
-          
         } catch (error) {
           console.log(error);
         }finally{
           setLoading(false);
         }
       }
-      
         if(token && userId){
           getUser()
         }
-      
-      
     },[])
     function userLogout() {
         setUser(null);
@@ -58,9 +54,7 @@ export function UserProvider({ children }) {
           localStorage.setItem("@TOKEN", data.token);
           navigate("/dashboard");
         } catch (error) {
-          if (error.response?.data === "Incorrect email / password combination") {
-            toast.error("Email ou senha incorreto");
-          }
+            toast.error("Email ou senha incorreto"); 
         } finally {
           setLoading(false);
         }

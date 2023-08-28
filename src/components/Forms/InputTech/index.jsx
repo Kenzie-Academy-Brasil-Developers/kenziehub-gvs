@@ -1,15 +1,14 @@
 import style from "./style.module.scss";
-export function Input({ error, label, type, register, disabled , placeholder }) {
+export function InputTech({ label, type, register, placeholder, disabled }) {
   return (
     <div className={style.inputBox}>
       <label className="label">{label}</label>
       <input
         type={type}
         {...register}
-        disabled={disabled}
         placeholder={placeholder}
+        disabled = {disabled}
       />
-      {error ? <p className={style.erro}>{error.message}</p> : null}
     </div>
   );
 }

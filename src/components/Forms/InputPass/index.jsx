@@ -14,11 +14,13 @@ export function InputPass({ error, label, register, disabled }) {
           disabled={disabled}
           placeholder="Digite sua senha"
         />
-        {error ? <p>{error.message}</p> : null}
         <button type="button" onClick={() => setIsHidden(!isHidden)}>
           {isHidden ? <MdVisibility /> : <MdVisibilityOff />}
         </button>
+        
       </div>
+      {error ? <p className={style.error}>{error.message}</p> : null}
+
     </div>
   );
 }
